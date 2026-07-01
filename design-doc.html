@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPS Trailhead Outfitters Design Document</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/design.css">
+</head>
+<body class="doc-page">
+    <header>
+        <h1>NPS Trailhead Outfitters Design Document</h1>
+        <p>
+            Planning page for a National Park Service inspired outdoor gear storefront.
+            The goal is to help visitors browse products, add items to a cart, and review their order.
+        </p>
+    </header>
+
+    <nav aria-label="Design document sections">
+        <a href="#wireframes">Wireframes</a>
+        <a href="#colors">Colors</a>
+        <a href="#typography">Typography</a>
+        <a href="#technical-plan">Technical Plan</a>
+    </nav>
+
+    <main>
+        <section id="overview">
+            <h2>Site Purpose</h2>
+            <p>
+                NPS Trailhead Outfitters will be a simple storefront for national park inspired outdoor gear.
+                Users will be able to browse product cards, add items to a cart, and review selected products
+                before checkout. The design should feel outdoorsy, readable, and easy to use on both mobile and
+                desktop screens.
+            </p>
+        </section>
+
+        <section id="wireframes">
+            <h2>Wireframes</h2>
+            <p>
+                These wireframes show the planned mobile and desktop layouts, including the
+                header/navigation, main content area, cards/lists, forms, footer, and major UI sections.
+            </p>
+
+            <div class="doc-grid doc-two-column doc-wireframes">
+                <article>
+                    <h3>Mobile Wireframe</h3>
+                    <figure class="doc-wireframe-image">
+                        <img src="src/images/mobile-wireframe.png" alt="Mobile wireframe for NPS Trailhead Outfitters">
+                    </figure>
+                </article>
+
+                <article>
+                    <h3>Desktop Wireframe</h3>
+                    <figure class="doc-wireframe-image">
+                        <img src="src/images/desktop-wireframe.png" alt="Desktop wireframe for NPS Trailhead Outfitters">
+                    </figure>
+                </article>
+
+                <article>
+                    <h3>Cart Mobile Wireframe</h3>
+                    <figure class="doc-wireframe-image">
+                        <img src="src/images/cart-mobile-wireframe.png" alt="Mobile cart wireframe for NPS Trailhead Outfitters">
+                    </figure>
+                </article>
+
+                <article>
+                    <h3>Cart Desktop Wireframe</h3>
+                    <figure class="doc-wireframe-image">
+                        <img src="src/images/cart-desktop-wireframe.png" alt="Desktop cart wireframe for NPS Trailhead Outfitters">
+                    </figure>
+                </article>
+            </div>
+        </section>
+
+        <section id="colors">
+            <h2>Color Palette</h2>
+            <p>
+                The palette uses forest green and warm earth tones to connect the site to national parks,
+                trail signs, trees, sunlight, and outdoor equipment. The colors are chosen to keep text readable
+                against light backgrounds.
+            </p>
+
+            <div class="doc-color-grid">
+                <div class="doc-swatch">
+                    <div class="doc-swatch-color doc-primary-swatch"></div>
+                    <div class="doc-swatch-info">
+                        <strong>Primary</strong>
+                        <span>#2F5D50</span>
+                        <span>Forest green</span>
+                    </div>
+                </div>
+                <div class="doc-swatch">
+                    <div class="doc-swatch-color doc-secondary-swatch"></div>
+                    <div class="doc-swatch-info">
+                        <strong>Secondary</strong>
+                        <span>#C97B3D</span>
+                        <span>Canyon clay</span>
+                    </div>
+                </div>
+                <div class="doc-swatch">
+                    <div class="doc-swatch-color doc-accent-swatch"></div>
+                    <div class="doc-swatch-info">
+                        <strong>Accent</strong>
+                        <span>#F2C14E</span>
+                        <span>Trail marker yellow</span>
+                    </div>
+                </div>
+                <div class="doc-swatch">
+                    <div class="doc-swatch-color doc-background-swatch"></div>
+                    <div class="doc-swatch-info">
+                        <strong>Background</strong>
+                        <span>#F7F4EC</span>
+                        <span>Warm off-white</span>
+                    </div>
+                </div>
+                <div class="doc-swatch">
+                    <div class="doc-swatch-color doc-text-swatch"></div>
+                    <div class="doc-swatch-info">
+                        <strong>Text</strong>
+                        <span>#24312E</span>
+                        <span>Dark pine charcoal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="typography">
+            <h2>Typography</h2>
+            <div class="doc-grid doc-two-column">
+                <article>
+                    <h3>Heading Font</h3>
+                    <p>
+                        <strong>Georgia</strong> will be used for headings. It has a classic outdoor guidebook
+                        feeling and gives the site a more planned look than a default sans-serif heading.
+                    </p>
+                </article>
+                <article>
+                    <h3>Body Font</h3>
+                    <p>
+                        <strong>Arial</strong> will be used for body text. It is easy to read, widely available
+                        in browsers, and works well for product cards, forms, buttons, and cart details.
+                    </p>
+                </article>
+            </div>
+            <p class="doc-note">
+                The final website will avoid Times New Roman as the default page font and will keep text sizes
+                consistent for readability.
+            </p>
+        </section>
+
+        <section id="technical-plan">
+            <h2>Technical Planning</h2>
+
+            <h3>Planned Pages / Views</h3>
+            <ul>
+                <li><strong>Main page:</strong> store header, navigation, featured products, product cards, and add-to-cart buttons.</li>
+                <li><strong>Cart page:</strong> selected products, item quantities, subtotal, total, and checkout-style order form.</li>
+            </ul>
+
+            <h3>Planned JavaScript Modules</h3>
+            <div class="doc-module-list">
+                <div class="doc-module">
+                    <strong>main.js</strong>
+                    <p>Starts the storefront, loads product data, connects event listeners, and updates page content.</p>
+                </div>
+                <div class="doc-module">
+                    <strong>data.js</strong>
+                    <p>Stores or loads product data, including product names, prices, categories, descriptions, and image paths.</p>
+                </div>
+                <div class="doc-module">
+                    <strong>render.js</strong>
+                    <p>Creates product cards, cart item rows, quantity displays, subtotal amounts, and cart messages.</p>
+                </div>
+                <div class="doc-module">
+                    <strong>storage.js</strong>
+                    <p>Handles saving, loading, updating, and removing cart items using localStorage.</p>
+                </div>
+            </div>
+
+            <h3>Planned Data Structure</h3>
+            <p>
+                The store data will be stored as JSON-style product objects. Each product will include an id,
+                name, category, price, short description, image path, and stock status.
+            </p>
+<pre><code>{
+  "id": "product01",
+  "name": "NPS Trail Pack",
+  "category": "Backpacks",
+  "price": 64.99,
+  "description": "A day pack for national park hikes and outdoor trips.",
+  "image": "images/trail-pack.webp",
+  "inStock": true
+}</code></pre>
+
+            <h3>Planned localStorage Feature</h3>
+            <p>
+                The website will use localStorage to save the user's shopping cart. When a user selects an
+                add-to-cart button, the product id and quantity will be stored in an array named
+                <code>cartItems</code>. The Cart page will read that saved list, display the selected products,
+                and calculate the order total.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NPS Trailhead Outfitters Design Plan | WDD 231</p>
+    </footer>
+</body>
+</html>
