@@ -3,7 +3,7 @@
  * @param {string} jsonPath - Path to the products.json file.
  * @returns {Promise<Array>} Array of product objects.
  */
-export async function fetchProducts(jsonPath = '/public/products.json') {
+export async function fetchProducts(jsonPath = '../data/products.json') {
   try {
     const response = await fetch(jsonPath);
     if (!response.ok) {
