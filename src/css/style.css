@@ -82,13 +82,14 @@ a {
 
 .hero {
   background: linear-gradient(135deg, #edf5ef 0%, #f8f5eb 100%);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2rem 1rem;
+  border-bottom: 1px solid var(--border); 
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0; 
+  padding: 2.5rem 1rem;
   text-align: center;
-  margin-bottom: 1.5rem;
-  max-width: 720px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .hero-tag {
@@ -98,6 +99,11 @@ a {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.hero-content {
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .hero h1 {
@@ -217,6 +223,10 @@ a {
     align-items: center;
   }
 
+  .hero {
+    padding: 4rem 1.5rem;
+  }
+
   .page-main {
     padding: 2rem 1.5rem 3rem;
   }
@@ -248,4 +258,197 @@ a {
     justify-content: space-between;
     align-items: center;
   }
+}
+
+/* ==========================================================================
+   Product Detail View & Order Form Styles
+   ========================================================================== */
+
+/* Main layout wrapper */
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.detail-image-wrapper img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.detail-info h1 {
+  margin: 0 0 0.5rem;
+  color: var(--primary);
+  font-family: Georgia, serif;
+  font-size: 2rem;
+}
+
+.detail-category {
+  display: inline-block;
+  background: #edf5ef;
+  color: var(--primary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.detail-description {
+  color: var(--text);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.detail-info .price {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Order Form Section */
+.order-form-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.order-form-section h2 {
+  font-family: Georgia, serif;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background: var(--surface);
+}
+
+/* Action Button Matching Header Button Structure */
+.submit-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  background: var(--secondary);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.05rem;
+  transition: opacity 0.2s ease;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+/* Confirmation Message States */
+.confirmation-container {
+  background: #edf5ef;
+  border: 1px solid #dce7df;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.confirmation-container h2 {
+  color: var(--primary);
+  font-family: Georgia, serif;
+  margin-top: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Desktop Responsiveness for Detail View */
+@media (min-width: 750px) {
+  .detail-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 2.5rem;
+  }
+  
+  .order-form-section {
+    padding: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   Interactive Catalog Routing Adjustments
+   ========================================================================== */
+
+/* Make product card headings keep their primary color link behavior */
+.product-details h3 a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.product-details h3 a:hover {
+  color: var(--secondary);
+}
+
+/* Ensure images maintain block aspect sizing inside link wraps */
+.card-link-wrapper {
+  display: block;
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+/* Clean up button hover states matching your course guidelines */
+.order-now-btn {
+  border: 0;
+  border-radius: 999px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.55rem 0.9rem;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.order-now-btn:hover {
+  background: var(--secondary);
+  transform: scale(1.03);
 }

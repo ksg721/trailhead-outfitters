@@ -12,7 +12,7 @@
         <h1>NPS Trailhead Outfitters Design Document</h1>
         <p>
             Planning page for a National Park Service inspired outdoor gear storefront.
-            The goal is to help visitors browse products, add items to a cart, and review their order.
+            The goal is to help visitors browse products, view specific details, and simulate ordering equipment.
         </p>
     </header>
 
@@ -27,10 +27,8 @@
         <section id="overview">
             <h2>Site Purpose</h2>
             <p>
-                NPS Trailhead Outfitters will be a simple storefront for national park inspired outdoor gear.
-                Users will be able to browse product cards, add items to a cart, and review selected products
-                before checkout. The design should feel outdoorsy, readable, and easy to use on both mobile and
-                desktop screens.
+                NPS Trailhead Outfitters will be a clean, user-friendly storefront for national park inspired outdoor gear.
+                Users will be able to browse a grid of dynamic product cards, dive into a distinct details view using URL state management parameters, and complete simulated checkout transactions via a validation form. The layout uses responsive design techniques to remain accessible and highly scannable on mobile, tablet, and desktop viewports.
             </p>
         </section>
 
@@ -38,35 +36,35 @@
             <h2>Wireframes</h2>
             <p>
                 These wireframes show the planned mobile and desktop layouts, including the
-                header/navigation, main content area, cards/lists, forms, footer, and major UI sections.
+                header/navigation, main content area, cards/lists, details workspace, forms, footer, and major UI sections.
             </p>
 
             <div class="doc-grid doc-two-column doc-wireframes">
                 <article>
-                    <h3>Mobile Wireframe</h3>
+                    <h3>Product Catalog Mobile Wireframe</h3>
                     <figure class="doc-wireframe-image">
-                        <img src="src/images/mobile-wireframe.png" alt="Mobile wireframe for NPS Trailhead Outfitters">
+                        <img src="src/images/mobile-wireframe.png" alt="Mobile catalog view layout for NPS Trailhead Outfitters">
                     </figure>
                 </article>
 
                 <article>
-                    <h3>Desktop Wireframe</h3>
+                    <h3>Product Catalog Desktop Wireframe</h3>
                     <figure class="doc-wireframe-image">
-                        <img src="src/images/desktop-wireframe.png" alt="Desktop wireframe for NPS Trailhead Outfitters">
+                        <img src="src/images/desktop-wireframe.png" alt="Desktop catalog grid wireframe for NPS Trailhead Outfitters">
                     </figure>
                 </article>
 
                 <article>
-                    <h3>Cart Mobile Wireframe</h3>
+                    <h3>Product Detail & Order Form Mobile Wireframe</h3>
                     <figure class="doc-wireframe-image">
-                        <img src="src/images/cart-mobile-wireframe.png" alt="Mobile cart wireframe for NPS Trailhead Outfitters">
+                        <img src="src/images/cart-mobile-wireframe.png" alt="Mobile detail and item form layout for NPS Trailhead Outfitters">
                     </figure>
                 </article>
 
                 <article>
-                    <h3>Cart Desktop Wireframe</h3>
+                    <h3>Product Detail & Order Form Desktop Wireframe</h3>
                     <figure class="doc-wireframe-image">
-                        <img src="src/images/cart-desktop-wireframe.png" alt="Desktop cart wireframe for NPS Trailhead Outfitters">
+                        <img src="src/images/cart-desktop-wireframe.png" alt="Desktop dynamic details and checkout wireframe for NPS Trailhead Outfitters">
                     </figure>
                 </article>
             </div>
@@ -138,7 +136,7 @@
                     <h3>Body Font</h3>
                     <p>
                         <strong>Arial</strong> will be used for body text. It is easy to read, widely available
-                        in browsers, and works well for product cards, forms, buttons, and cart details.
+                        in browsers, and works well for product cards, forms, buttons, and checkout elements.
                     </p>
                 </article>
             </div>
@@ -153,51 +151,50 @@
 
             <h3>Planned Pages / Views</h3>
             <ul>
-                <li><strong>Main page:</strong> store header, navigation, featured products, product cards, and add-to-cart buttons.</li>
-                <li><strong>Cart page:</strong> selected products, item quantities, subtotal, total, and checkout-style order form.</li>
+                <li><strong>Main Page (Product Listing):</strong> Features site header with navigation, an interactive counter tracking overall simulated order state, and a dynamic responsive grid displaying available inventory retrieved from externalized raw JSON.</li>
+                <li><strong>Product Detail & Order View Page:</strong> Targets single specific items parsed out of the URL parameters string. Renders comprehensive item definitions, features, and hosts an integrated required text form block enabling users to process simulated transaction updates.</li>
             </ul>
 
             <h3>Planned JavaScript Modules</h3>
             <div class="doc-module-list">
                 <div class="doc-module">
                     <strong>main.js</strong>
-                    <p>Starts the storefront, loads product data, connects event listeners, and updates page content.</p>
+                    <p>Bootstraps the home view app context, initialises file fetch chains, and displays root interface elements.</p>
+                </div>
+                <div class="doc-module">
+                    <strong>detail.js</strong>
+                    <p>Coordinates the individual product display page, handles the URL parameter parsing, handles form field structural validation, and manages order execution events.</p>
                 </div>
                 <div class="doc-module">
                     <strong>data.js</strong>
-                    <p>Stores or loads product data, including product names, prices, categories, descriptions, and image paths.</p>
+                    <p>Acts as an asynchronous engine using the Fetch API to load clean product catalog definitions from products.json while seamlessly surfacing loading/error indicator tags.</p>
                 </div>
                 <div class="doc-module">
                     <strong>render.js</strong>
-                    <p>Creates product cards, cart item rows, quantity displays, subtotal amounts, and cart messages.</p>
+                    <p>Pure UI rendering layer that processes Javascript data collections into semantic template strings to dynamically paint the DOM framework blocks.</p>
                 </div>
                 <div class="doc-module">
                     <strong>storage.js</strong>
-                    <p>Handles saving, loading, updating, and removing cart items using localStorage.</p>
+                    <p>Encapsulates interaction with local storage utility functions, keeping track of cumulative simulated total counts and the user's recently viewed items pipeline history.</p>
                 </div>
             </div>
 
             <h3>Planned Data Structure</h3>
             <p>
-                The store data will be stored as JSON-style product objects. Each product will include an id,
-                name, category, price, short description, image path, and stock status.
+                The store catalog is maintained inside a unified local array map file. Each single entity contains discrete identification strings, categories, descriptive statements, pricing decimals, and system assets references.
             </p>
 <pre><code>{
-  "id": "product01",
-  "name": "NPS Trail Pack",
-  "category": "Backpacks",
-  "price": 64.99,
-  "description": "A day pack for national park hikes and outdoor trips.",
-  "image": "images/trail-pack.webp",
-  "inStock": true
+  "id": "tent01",
+  "name": "2-Person Backpacking Tent",
+  "description": "Lightweight tent for backcountry camping.",
+  "image": "images/tent.jpg",
+  "price": 129.99,
+  "category": "Camping"
 }</code></pre>
 
             <h3>Planned localStorage Feature</h3>
             <p>
-                The website will use localStorage to save the user's shopping cart. When a user selects an
-                add-to-cart button, the product id and quantity will be stored in an array named
-                <code>cartItems</code>. The Cart page will read that saved list, display the selected products,
-                and calculate the order total.
+                The website utilizes web storage components to persist key state markers safely over browser loads. Upon validating and processing a simulated order request, an entry counter key is incremented sequentially (e.g. <code>totalOrders</code>). Additionally, tracking pipelines can automatically cache recently clicked product IDs via a tracking array (<code>recentlyViewed</code>) to dynamically present history options back to users.
             </p>
         </section>
     </main>

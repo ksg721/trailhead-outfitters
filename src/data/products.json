@@ -1,0 +1,98 @@
+[
+  {
+    "id": "tent01",
+    "name": "2-Person Backpacking Tent",
+    "description": "Lightweight, wind-resistant tent perfect for backcountry camping.",
+    "image": "images/tent01.jpg",
+    "price": 129.99,
+    "category": "Camping"
+  },
+  {
+    "id": "pack01",
+    "name": "55L Internal Frame Pack",
+    "description": "Ergonomic hiking backpack with adjustable suspension and rain cover.",
+    "image": "images/pack01.jpg",
+    "price": 149.99,
+    "category": "Hiking"
+  },
+  {
+    "id": "bag01",
+    "name": "30°F Down Sleeping Bag",
+    "description": "Compact and warm down sleeping bag for chilly mountain nights.",
+    "image": "images/bag01.jpg",
+    "price": 189.99,
+    "category": "Camping"
+  },
+  {
+    "id": "boots01",
+    "name": "Waterproof Hiking Boots",
+    "description": "Durable leather hiking boots with high ankle support and Vibram soles.",
+    "image": "images/boots01.jpg",
+    "price": 135.50,
+    "category": "Hiking"
+  },
+  {
+    "id": "stove01",
+    "name": "Ultralight Camping Stove",
+    "description": "Fast-boiling canister stove that folds down to fit in your pocket.",
+    "image": "images/stove01.jpg",
+    "price": 44.95,
+    "category": "Camping"
+  },
+  {
+    "id": "poles01",
+    "name": "Carbon Fiber Trekking Poles",
+    "description": "Shock-absorbing, collapsible poles to reduce knee strain on descents.",
+    "image": "images/poles01.jpg",
+    "price": 79.99,
+    "category": "Hiking"
+  },
+  {
+    "id": "lamp01",
+    "name": "300 Lumen LED Headlamp",
+    "description": "Weatherproof headlamp with multiple brightness modes and red night vision.",
+    "image": "images/lamp01.jpg",
+    "price": 29.99,
+    "category": "Tools"
+  },
+  {
+    "id": "cook01",
+    "name": "Anodized Aluminum Cookset",
+    "description": "Nested pots and pans with heat-resistant handles for campsite cooking.",
+    "image": "images/cook01.jpg",
+    "price": 39.99,
+    "category": "Camping"
+  },
+  {
+    "id": "filter01",
+    "name": "Squeeze Water Filter",
+    "description": "Removes 99.999% of bacteria and protozoa from backcountry water sources.",
+    "image": "images/filter01.jpg",
+    "price": 28.00,
+    "category": "Tools"
+  },
+  {
+    "id": "pad01",
+    "name": "Insulated Sleeping Pad",
+    "description": "Inflatable pad providing excellent ground insulation and comfort.",
+    "image": "images/pad01.jpg",
+    "price": 95.00,
+    "category": "Camping"
+  },
+  {
+    "id": "jacket01",
+    "name": "Packable Rain Shell",
+    "description": "Lightweight, breathable, and fully waterproof jacket for sudden downpours.",
+    "image": "images/jacket01.jpg",
+    "price": 110.00,
+    "category": "Hiking"
+  },
+  {
+    "id": "compass01",
+    "name": "Sighting Orienteering Compass",
+    "description": "Heavy-duty navigation compass with mirror sighting and declination adjustment.",
+    "image": "images/compass01.jpg",
+    "price": 24.50,
+    "category": "Tools"
+  }
+]
