@@ -6,7 +6,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(process.cwd(), "index.html"),
-                cart: resolve(process.cwd(), "cart.html"),
+                "product-detail": resolve(process.cwd(), "product-detail.html"),
                 "design-doc": resolve(process.cwd(), "design-doc.html"),
             },
         },
