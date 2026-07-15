@@ -3,7 +3,7 @@
     "id": "tent01",
     "name": "2-Person Backpacking Tent",
     "description": "Lightweight, wind-resistant tent perfect for backcountry camping.",
-    "image": "src/images/tent01.jpg",
+    "image": "images/tent01.jpg",
     "price": 129.99,
     "category": "Camping"
   },
@@ -11,7 +11,7 @@
     "id": "pack01",
     "name": "55L Internal Frame Pack",
     "description": "Ergonomic hiking backpack with adjustable suspension and rain cover.",
-    "image": "src/images/pack01.jpg",
+    "image": "images/pack01.jpg",
     "price": 149.99,
     "category": "Hiking"
   },
@@ -19,7 +19,7 @@
     "id": "bag01",
     "name": "30°F Sleeping Bag",
     "description": "Compact and warm down sleeping bag for chilly mountain nights.",
-    "image": "src/images/bag01.jpg",
+    "image": "images/bag01.jpg",
     "price": 189.99,
     "category": "Camping"
   },
@@ -27,7 +27,7 @@
     "id": "boots01",
     "name": "Hiking Boots",
     "description": "Durable hiking boots with high ankle support and Vibram soles.",
-    "image": "src/images/boots01.jpg",
+    "image": "images/boots01.jpg",
     "price": 135.5,
     "category": "Hiking"
   },
@@ -35,7 +35,7 @@
     "id": "stove01",
     "name": "Camping Stove",
     "description": "Fast-boiling outdoor stove.",
-    "image": "src/images/stove01.jpg",
+    "image": "images/stove01.jpg",
     "price": 44.95,
     "category": "Camping"
   },
@@ -43,7 +43,7 @@
     "id": "poles01",
     "name": "Carbon Fiber Trekking Poles",
     "description": "Shock-absorbing, collapsible poles to reduce knee strain on descents.",
-    "image": "src/images/poles01.jpg",
+    "image": "images/poles01.jpg",
     "price": 79.99,
     "category": "Hiking"
   },
@@ -51,7 +51,7 @@
     "id": "lamp01",
     "name": "300 Lumen LED Headlamp",
     "description": "Weatherproof headlamp with multiple brightness modes and red night vision.",
-    "image": "src/images/lamp01.jpg",
+    "image": "images/lamp01.jpg",
     "price": 29.99,
     "category": "Tools"
   },
@@ -59,7 +59,7 @@
     "id": "cook01",
     "name": "Anodized Aluminum Cookset",
     "description": "Nested pots and pans with heat-resistant handles for campsite cooking.",
-    "image": "src/images/cook01.jpg",
+    "image": "images/cook01.jpg",
     "price": 39.99,
     "category": "Camping"
   },
@@ -67,7 +67,7 @@
     "id": "filter01",
     "name": "Filtered Water Bottle",
     "description": "Removes 99.999% of bacteria and protozoa from backcountry water sources.",
-    "image": "src/images/filter01.jpg",
+    "image": "images/filter01.jpg",
     "price": 48.0,
     "category": "Tools"
   },
@@ -75,7 +75,7 @@
     "id": "pad01",
     "name": "Insulated Sleeping Pad",
     "description": "Inflatable pad providing excellent ground insulation and comfort.",
-    "image": "src/images/pad01.jpg",
+    "image": "images/pad01.jpg",
     "price": 95.0,
     "category": "Camping"
   },
@@ -83,7 +83,7 @@
     "id": "jacket01",
     "name": "Packable Rain Shell",
     "description": "Lightweight, breathable, and fully waterproof jacket for sudden downpours.",
-    "image": "src/images/jacket01.jpg",
+    "image": "images/jacket01.jpg",
     "price": 110.0,
     "category": "Hiking"
   },
@@ -91,7 +91,7 @@
     "id": "compass01",
     "name": "Sighting Orienteering Compass",
     "description": "Heavy-duty navigation compass with mirror sighting and declination adjustment.",
-    "image": "src/images/compass01.jpg",
+    "image": "images/compass01.jpg",
     "price": 24.5,
     "category": "Tools"
   }
