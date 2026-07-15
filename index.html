@@ -11,7 +11,13 @@
     <header class="site-header">
       <nav class="site-nav" aria-label="Main navigation">
         <a class="brand" href="index.html">Trailhead Outfitters</a>
-        <span id="order-counter" class="order-counter">Orders Placed: 0</span>
+        <a
+          href="cart.html"
+          id="cart-counter"
+          class="order-counter"
+          style="text-decoration: none"
+          >🛒 Cart: 0 items</a
+        >
       </nav>
     </header>
 
@@ -19,11 +25,25 @@
       <div class="hero-content">
         <p class="hero-tag">Gear Up</p>
         <h1>National Parks Trailhead Outfitters</h1>
-        <p>Gear up for your next backcountry adventure.</p>
       </div>
     </section>
 
     <main class="page-main">
+      <div class="filter-controls" aria-label="Product Filters">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search gear (e.g., tent, boots)..."
+          aria-label="Search products"
+        />
+
+        <select id="category-filter" aria-label="Filter by category">
+          <option value="all">All Categories</option>
+          <option value="Camping">Camping</option>
+          <option value="Hiking">Hiking</option>
+          <option value="Tools">Tools</option>
+        </select>
+      </div>
       <section
         id="product-list-container"
         class="product-grid"

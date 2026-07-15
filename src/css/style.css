@@ -30,6 +30,9 @@ a {
   background: var(--background);
 }
 
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
 .site-header {
   background: var(--primary);
   border-bottom: 4px solid var(--accent);
@@ -45,35 +48,32 @@ a {
   gap: 0.85rem;
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.brand,
-.cart-button,
-.nav-links a {
+/* Consolidate all header link colors */
+.site-nav a {
+  color: white;
   font-weight: 700;
 }
 
 .brand {
-  color: white;
   font-size: 1.05rem;
 }
 
-.nav-links a {
-  color: white;
+/* Styles the Cart Link like a button pill */
+.order-counter {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
 }
 
-.cart-button {
-  background: var(--secondary);
-  color: white;
-  padding: 0.6rem 1rem;
-  border-radius: 15px;
+.order-counter:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
+/* ==========================================================================
+   Main Layout & Hero
+   ========================================================================== */
 .page-main {
   max-width: 1100px;
   margin: 0 auto;
@@ -81,24 +81,16 @@ a {
 }
 
 .hero {
-  background: linear-gradient(135deg, #edf5ef 0%, #f8f5eb 100%);
-  border-bottom: 1px solid var(--border); 
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-radius: 0; 
-  padding: 2.5rem 1rem;
+  background:
+    linear-gradient(rgba(36, 49, 46, 0.65), rgba(36, 49, 46, 0.75)),
+    url("../images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid var(--border);
+  padding: 5rem 1rem;
   text-align: center;
   width: 100%;
-}
-
-.hero-tag {
-  margin: 0 0 0.5rem;
-  color: var(--secondary);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .hero-content {
@@ -106,9 +98,18 @@ a {
   margin: 0 auto;
 }
 
+.hero-tag {
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .hero h1 {
   margin: 0 0 0.75rem;
-  color: var(--primary);
+  color: var(--surface);
   font-family: Georgia, serif;
   font-size: clamp(1.8rem, 3.2vw, 2.8rem);
   line-height: 1.2;
@@ -116,10 +117,13 @@ a {
 
 .hero p {
   margin: 0;
-  color: var(--muted);
+  color: var(--surface);
   font-size: 1.05rem;
 }
 
+/* ==========================================================================
+   Product Grid & Cards (Homepage)
+   ========================================================================== */
 .product-section {
   padding-top: 0.5rem;
 }
@@ -172,6 +176,17 @@ a {
   font-size: 1rem;
 }
 
+/* Make product card headings keep their primary color link behavior */
+.product-details h3 a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.product-details h3 a:hover {
+  color: var(--secondary);
+}
+
 .product-details p {
   margin: 0 0 0.5rem;
   color: var(--muted);
@@ -184,7 +199,15 @@ a {
   font-weight: 700;
 }
 
-.product-details button {
+/* Ensure images maintain block aspect sizing inside link wraps */
+.card-link-wrapper {
+  display: block;
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.order-now-btn {
   border: 0;
   border-radius: 999px;
   background: var(--primary);
@@ -192,79 +215,53 @@ a {
   cursor: pointer;
   font-weight: 700;
   padding: 0.55rem 0.9rem;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.site-footer {
-  background: var(--text);
-  color: #f7f4ec;
-  border-top: 4px solid var(--accent);
-  padding: 1.25rem 1rem 1.5rem;
-}
-
-.footer-content {
-  max-width: 960px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-.site-footer p {
-  max-width: 960px;
-  margin: 0.75rem auto 0;
-  text-align: center;
-}
-
-@media (min-width: 700px) {
-  .site-nav {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .hero {
-    padding: 4rem 1.5rem;
-  }
-
-  .page-main {
-    padding: 2rem 1.5rem 3rem;
-  }
-
-  .hero {
-    padding: 3rem 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-  }
-
-  .product-card {
-    grid-template-columns: 90px 1fr;
-    gap: 1rem;
-    align-items: center;
-    padding: 1.25rem;
-  }
-
-  .product-image {
-    width: 90px;
-    height: 90px;
-  }
-
-  .footer-content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+.order-now-btn:hover {
+  background: var(--secondary);
+  transform: scale(1.03);
 }
 
 /* ==========================================================================
-   Product Detail View & Order Form Styles
+   Search & Filter Controls
    ========================================================================== */
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background: var(--surface);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 6px rgba(36, 49, 46, 0.04);
+}
 
-/* Main layout wrapper */
+.filter-controls input,
+.filter-controls select {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+.filter-controls input:focus,
+.filter-controls select:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background-color: var(--surface);
+}
+
+/* ==========================================================================
+   Product Detail View
+   ========================================================================== */
 .detail-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -315,7 +312,91 @@ a {
   margin-bottom: 1.5rem;
 }
 
-/* Order Form Section */
+/* ==========================================================================
+   Shopping Cart & Forms
+   ========================================================================== */
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.cart-item {
+  display: flex;
+  gap: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-details h3 {
+  margin: 0 0 0.25rem;
+  color: var(--primary);
+  font-family: Georgia, serif;
+}
+
+.cart-item-details p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.cart-item-actions {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cart-item-price {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.cart-total-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--primary);
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: var(--error-color, #ba3c2a);
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.5rem;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+}
+
+.remove-btn:hover {
+  opacity: 0.7;
+}
+
+/* Reusable Form Styles */
 .order-form-section {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -330,7 +411,6 @@ a {
   margin-bottom: 1.25rem;
 }
 
-/* Form Controls */
 .form-group {
   margin-bottom: 1.25rem;
 }
@@ -362,7 +442,6 @@ a {
   background: var(--surface);
 }
 
-/* Action Button Matching Header Button Structure */
 .submit-btn {
   width: 100%;
   border: 0;
@@ -380,7 +459,6 @@ a {
   opacity: 0.9;
 }
 
-/* Confirmation Message States */
 .confirmation-container {
   background: #edf5ef;
   border: 1px solid #dce7df;
@@ -399,56 +477,127 @@ a {
   display: none !important;
 }
 
-/* Desktop Responsiveness for Detail View */
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  background: var(--text);
+  color: #f7f4ec;
+  border-top: 4px solid var(--accent);
+  padding: 1.25rem 1rem 1.5rem;
+}
+
+.footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.site-footer p {
+  max-width: 960px;
+  margin: 0.75rem auto 0;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints (Desktop View)
+   ========================================================================== */
+@media (min-width: 700px) {
+  .site-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .page-main {
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .hero {
+    padding: 4rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    grid-template-columns: 90px 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.25rem;
+  }
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 @media (min-width: 750px) {
   .detail-container {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     padding: 2.5rem;
   }
-  
+
   .order-form-section {
     padding: 2.5rem;
   }
 }
 
+@media (min-width: 800px) {
+  .cart-layout {
+    grid-template-columns: 3fr 2fr; /* 60% left, 40% right */
+    align-items: start;
+  }
+}
+
 /* ==========================================================================
-   Interactive Catalog Routing Adjustments
+   Animations & Micro-interactions
    ========================================================================== */
 
-/* Make product card headings keep their primary color link behavior */
-.product-details h3 a {
-  color: var(--primary);
-  text-decoration: none;
-  transition: color 0.2s ease;
+/* 1. Smooth Fade Up for Grid and Cart Items */
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(15px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
-.product-details h3 a:hover {
-  color: var(--secondary);
+.product-card, .cart-item {
+  animation: fadeInUp 0.4s ease-out forwards;
 }
 
-/* Ensure images maintain block aspect sizing inside link wraps */
-.card-link-wrapper {
-  display: block;
-  width: 90px;
-  height: 90px;
-  flex-shrink: 0;
+/* 2. Header Cart Counter "Pop" Feedback */
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); background-color: rgba(255, 255, 255, 0.4); }
+  100% { transform: scale(1); }
 }
 
-/* Clean up button hover states matching your course guidelines */
-.order-now-btn {
-  border: 0;
-  border-radius: 999px;
-  background: var(--primary);
-  color: white;
-  cursor: pointer;
-  font-weight: 700;
-  padding: 0.55rem 0.9rem;
-  margin-top: 0.5rem;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+.counter-pop {
+  animation: pop 0.3s ease-out;
 }
 
-.order-now-btn:hover {
-  background: var(--secondary);
-  transform: scale(1.03);
+/* 3. Smooth Slide Out for Cart Item Removal */
+@keyframes slideOutRight {
+  to { 
+    opacity: 0; 
+    transform: translateX(30px); 
+  }
+}
+
+.item-removing {
+  animation: slideOutRight 0.3s ease-in forwards;
 }
