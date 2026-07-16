@@ -1,5 +1,5 @@
 import { fetchProducts } from "./data.js";
-import { trackRecentlyViewed, addToCart, getCartItemCount } from "./storage.js";
+import { addToCart, getCartItemCount } from "./storage.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const cartCounterDisplay = document.getElementById("cart-counter");
@@ -29,49 +29,28 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // Update recently viewed history
-    trackRecentlyViewed(selectedProduct.id);
-
     // Render the product and the new Add to Cart button
     renderProductDetail(selectedProduct);
 
-    // 4. Attach event listener to the new Add to Cart button
+    // 4. Attach event listener to the Add to Cart button
     const addToCartBtn = document.getElementById("add-to-cart-btn");
     if (addToCartBtn) {
       addToCartBtn.addEventListener("click", () => {
         addToCart(selectedProduct.id);
         updateCartCounter();
 
-        // Provide user feedback
+        if (cartCounterDisplay) {
+          cartCounterDisplay.classList.remove("counter-pop");
+          void cartCounterDisplay.offsetWidth; // Force browser reflow to restart animation
+          cartCounterDisplay.classList.add("counter-pop");
+        }
+
         addToCartBtn.textContent = "✓ Added to Cart!";
         addToCartBtn.style.backgroundColor = "var(--primary)";
         setTimeout(() => {
           addToCartBtn.textContent = "Add to Cart";
           addToCartBtn.style.backgroundColor = "var(--secondary)";
         }, 2000);
-        // 4. Attach event listener to the new Add to Cart button
-        const addToCartBtn = document.getElementById("add-to-cart-btn");
-        if (addToCartBtn) {
-          addToCartBtn.addEventListener("click", () => {
-            addToCart(selectedProduct.id);
-            updateCartCounter();
-
-            // --- NEW: Trigger the visual 'pop' animation on the counter ---
-            if (cartCounterDisplay) {
-              cartCounterDisplay.classList.remove("counter-pop");
-              void cartCounterDisplay.offsetWidth; // Force browser reflow to restart animation
-              cartCounterDisplay.classList.add("counter-pop");
-            }
-
-            // Provide user feedback on the button itself
-            addToCartBtn.textContent = "✓ Added to Cart!";
-            addToCartBtn.style.backgroundColor = "var(--primary)";
-            setTimeout(() => {
-              addToCartBtn.textContent = "Add to Cart";
-              addToCartBtn.style.backgroundColor = "var(--secondary)";
-            }, 2000);
-          });
-        }
       });
     }
   } catch (error) {
