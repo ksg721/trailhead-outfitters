@@ -1,6 +1,5 @@
 import { fetchProducts } from "./data.js";
 import { renderProductGrid, renderErrorMessage } from "./render.js";
-// 1. Swap the old getOrderCount for the new getCartItemCount
 import { getCartItemCount } from "./storage.js";
 
 document.addEventListener("DOMContentLoaded", async () => {

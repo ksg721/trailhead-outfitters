@@ -1,10 +1,10 @@
 import { fetchProducts } from "./data.js";
-// Make sure to import the new removeFromCart function!
 import {
   getCart,
   getCartItemCount,
   clearCart,
   removeFromCart,
+  updateCartQuantity,
 } from "./storage.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Master product list to reference prices/names
   let allProducts = [];
+  let shouldAnimateCartItems = true;
 
   // 1. Initial Load
   try {
@@ -55,11 +56,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const itemEl = document.createElement("article");
         itemEl.classList.add("cart-item");
+        if (shouldAnimateCartItems) {
+          itemEl.classList.add("animate-on-load");
+        }
         itemEl.innerHTML = `
           <img src="${product.image}" alt="${product.name}" onerror="this.src='https://placehold.co/100x100?text=No+Image'">
           <div class="cart-item-details">
             <h3>${product.name}</h3>
-            <p>Quantity: <strong>${cartItem.quantity}</strong></p>
+            <div class="cart-quantity-control">
+              <button class="quantity-btn" data-id="${product.id}" data-action="decrease" aria-label="Decrease quantity">−</button>
+              <span class="quantity-value">${cartItem.quantity}</span>
+              <button class="quantity-btn" data-id="${product.id}" data-action="increase" aria-label="Increase quantity">+</button>
+            </div>
           </div>
           <div class="cart-item-actions">
             <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
@@ -80,18 +88,33 @@ document.addEventListener("DOMContentLoaded", async () => {
       btn.addEventListener("click", (event) => {
         const productId = event.target.getAttribute("data-id");
 
-        // --- NEW: Animation Logic ---
-        // Find the specific <article> container for this button
         const itemElement = event.target.closest(".cart-item");
-
-        // Apply the CSS animation class
         itemElement.classList.add("item-removing");
 
-        // Wait 300ms (matching the CSS animation duration) before removing from storage and redrawing
         setTimeout(() => {
           removeFromCart(productId);
           renderCartDisplay();
         }, 300);
+      });
+    });
+
+    shouldAnimateCartItems = false;
+
+    // Attach event listeners to quantity adjustment buttons
+    const quantityButtons = document.querySelectorAll(".quantity-btn");
+    quantityButtons.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        const productId = event.target.getAttribute("data-id");
+        const action = event.target.getAttribute("data-action");
+        const cartItem = getCart().find((item) => item.id === productId);
+        if (!cartItem) return;
+
+        const newQuantity = action === "increase"
+          ? cartItem.quantity + 1
+          : cartItem.quantity - 1;
+
+        updateCartQuantity(productId, newQuantity);
+        renderCartDisplay();
       });
     });
   }
