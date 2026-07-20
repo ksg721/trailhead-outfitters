@@ -1,12 +1,9 @@
 import { fetchProducts } from "./data.js";
 import { renderProductGrid, renderErrorMessage } from "./render.js";
-import { getCartItemCount } from "./storage.js";
+import { syncCartCounter } from "./cart.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("product-list-container");
-
-  // 2. Target the new cart-counter ID you added to your HTML
-  const cartCounterDisplay = document.getElementById("cart-counter");
 
   const searchInput = document.getElementById("search-input");
   const categoryFilter = document.getElementById("category-filter");
@@ -14,10 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   let allProducts = [];
 
   // 3. Update the persistent cart banner using the new cart math
-  if (cartCounterDisplay) {
-    const count = getCartItemCount();
-    cartCounterDisplay.textContent = `🛒 Cart: ${count} item${count === 1 ? "" : "s"}`;
-  }
+  syncCartCounter();
 
   // Fetch data, save to global array, and initial render
   try {

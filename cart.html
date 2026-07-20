@@ -8,101 +8,27 @@
     <script src="src/js/cart.js" type="module" defer></script>
   </head>
   <body class="page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <nav class="site-nav" aria-label="Main navigation">
         <a class="brand" href="index.html">Trailhead Outfitters</a>
-        <a
-          href="cart.html"
+        <button
+          type="button"
           id="cart-counter"
           class="order-counter"
-          style="text-decoration: none"
-          >🛒 Cart: 0 items</a
-        >
+          aria-label="Open shopping cart"
+          aria-haspopup="dialog"
+          aria-controls="cart-modal"
+          aria-expanded="false"
+        >🛒 Cart: 0 items</button>
       </nav>
     </header>
 
-    <main class="page-main">
-      <h1
-        style="
-          color: var(--primary);
-          font-family: Georgia, serif;
-          margin-bottom: 2rem;
-        "
-      >
-        Your Shopping Cart
-      </h1>
-
-      <div class="cart-layout hidden" id="cart-workspace">
-        <section id="cart-items-container" aria-label="Items in your cart">
-          <p class="loading-msg">Loading your gear...</p>
-        </section>
-
-        <section class="order-form-section" aria-label="Checkout Form">
-          <h2>Order Summary</h2>
-          <div class="cart-total-box">
-            <span>Total:</span>
-            <strong id="cart-total-price">$0.00</strong>
-          </div>
-
-          <h2 style="margin-top: 2rem; font-size: 1.25rem">Shipping Details</h2>
-          <form id="checkout-form" novalidate>
-            <div class="form-group">
-              <label for="user-name">Full Name *</label>
-              <input
-                type="text"
-                id="user-name"
-                name="name"
-                required
-                placeholder="John Doe"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="user-email">Email Address *</label>
-              <input
-                type="email"
-                id="user-email"
-                name="email"
-                required
-                placeholder="john@example.com"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="user-address">Shipping Address *</label>
-              <input
-                type="text"
-                id="user-address"
-                name="address"
-                required
-                placeholder="123 Trailhead Way, ID"
-              />
-            </div>
-
-            <button type="submit" class="btn submit-btn">
-              Complete Purchase
-            </button>
-          </form>
-        </section>
+    <main class="page-main cart-page-shell" id="main-content">
+      <div class="cart-page-placeholder">
+        <h1>Your Shopping Cart</h1>
+        <p>The cart opens as a modal from the header.</p>
       </div>
-
-      <section id="empty-cart-msg" class="confirmation-container hidden">
-        <h2>Your cart is empty!</h2>
-        <p>
-          Looks like you haven't added any gear for your next adventure yet.
-        </p>
-        <a
-          href="index.html"
-          class="btn"
-          style="display: inline-block; margin-top: 1.5rem; max-width: 250px"
-          >Browse Catalog</a
-        >
-      </section>
-
-      <section
-        id="confirmation-msg"
-        class="confirmation-container hidden"
-      ></section>
     </main>
 
     <footer class="site-footer">

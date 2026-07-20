@@ -6,22 +6,26 @@
     <title>Product Details | NPS Trailhead Outfitters</title>
     <link rel="stylesheet" href="src/css/style.css" />
     <script src="src/js/detail.js" type="module" defer></script>
+    <script src="src/js/cart.js" type="module" defer></script>
   </head>
   <body class="page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <nav class="site-nav" aria-label="Main navigation">
         <a class="brand" href="index.html">Trailhead Outfitters</a>
-        <a
-          href="cart.html"
+        <button
+          type="button"
           id="cart-counter"
           class="order-counter"
-          style="text-decoration: none"
-          >🛒 Cart: 0 items</a
-        >
+          aria-label="Open shopping cart"
+          aria-haspopup="dialog"
+          aria-controls="cart-modal"
+          aria-expanded="false"
+        >🛒 Cart: 0 items</button>
       </nav>
     </header>
 
-    <main class="page-main">
+    <main class="page-main" id="main-content">
       <section id="detail-view-container" aria-label="Product Showcase">
         <p class="loading-msg">Loading gear details...</p>
       </section>
