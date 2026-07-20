@@ -1,12 +1,13 @@
 import { fetchProducts } from "./data.js";
-import { addToCart, getCartItemCount } from "./storage.js";
+import { addToCart } from "./storage.js";
+import { syncCartCounter } from "./cart.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const cartCounterDisplay = document.getElementById("cart-counter");
   const detailContainer = document.getElementById("detail-view-container");
 
   // 1. Update the cart counter on page load
-  updateCartCounter();
+  syncCartCounter();
 
   // 2. Parse URL parameters
   const urlParams = new URLSearchParams(window.location.search);
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (addToCartBtn) {
       addToCartBtn.addEventListener("click", () => {
         addToCart(selectedProduct.id);
-        updateCartCounter();
+        syncCartCounter();
 
         if (cartCounterDisplay) {
           cartCounterDisplay.classList.remove("counter-pop");
@@ -60,13 +61,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Helpers
-  function updateCartCounter() {
-    if (cartCounterDisplay) {
-      const count = getCartItemCount();
-      cartCounterDisplay.textContent = `🛒 Cart: ${count} item${count === 1 ? "" : "s"}`;
-    }
-  }
-
   function renderProductDetail(product) {
     detailContainer.innerHTML = `
       <div class="detail-container">
